@@ -6,7 +6,7 @@
 /*   By: npiya-is <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 15:15:25 by npiya-is          #+#    #+#             */
-/*   Updated: 2023/05/17 15:42:19 by npiya-is         ###   ########.fr       */
+/*   Updated: 2023/05/22 15:05:29 by npiya-is         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@ package render
 
 import (
 	"BuildWebgo/cmd/pkg/config"
+	"BuildWebgo/cmd/pkg/models"
 	"bytes"
 	"html/template"
 	"log"
@@ -29,21 +30,28 @@ func NewTemplates(a *config.AppConfig) {
 	app = a
 }
 
+func AddDefaultData(td *models.TemplateData) *models.TemplateData {
+	//implement later
+	return td
+}
+
 //RenderTemplate from html/template
-func RenderTemplates(w http.ResponseWriter, tmpl string) {
+func RenderTemplates(w http.ResponseWriter, tmpl string, td *models.TemplateData) {
 	//create a template cache
 	// tc, err := CreateTemplateCache()
 	// if err != nil {
 	// 	log.Fatal(err)
 	// }
-	tc := app.TemplateCache
+	var tc map[string]*template.Template
+	tc = app.TemplateCache
 	// get requested template from cache
 	t, ok := tc[tmpl]
 	if !ok {
 		log.Fatal("Could not get template cache.")
 	}
 	buf := new(bytes.Buffer)
-	err := t.Execute(buf, nil)
+	td = AddDefaultData(td)
+	err := t.Execute(buf, td)
 	if err != nil {
 		log.Println(err)
 	}

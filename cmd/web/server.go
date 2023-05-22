@@ -6,7 +6,7 @@
 /*   By: npiya-is <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/15 15:01:18 by npiya-is          #+#    #+#             */
-/*   Updated: 2023/05/17 15:54:45 by npiya-is         ###   ########.fr       */
+/*   Updated: 2023/05/22 15:55:20 by npiya-is         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,14 @@ package main
 
 import (
 	"BuildWebgo/cmd/pkg/config"
-	handler "BuildWebgo/cmd/pkg/handlers"
-	render "BuildWebgo/cmd/pkg/render"
+	"BuildWebgo/cmd/pkg/handlers"
+	"BuildWebgo/cmd/pkg/render"
 	"fmt"
 	"log"
 	"net/http"
 )
 
-var portNumber = ":8080"
+const portNumber = ":8080"
 
 func main() {
 	var app config.AppConfig
@@ -32,13 +32,22 @@ func main() {
 	app.TemplateCache = tc
 	app.UseCache = false
 
-	repo := handler.NewRepo(&app)
-	handler.NewHandlers(repo)
+	repo := handlers.NewRepo(&app)
+	handlers.NewHandlers(repo)
 	render.NewTemplates(&app)
-	http.HandleFunc("/", handler.Repo.HandlerHttp)
-	http.HandleFunc("/about", handler.Repo.AboutHttp)
+
+	// http.HandleFunc("/", handler.Repo.HandlerHttp)
+	// http.HandleFunc("/about", handler.Repo.AboutHttp)
+
 	fmt.Printf("Starting server on port %s\n", portNumber)
-	if err := http.ListenAndServe(portNumber, nil); err != nil {
-		log.Fatal(err)
+	// if err := http.ListenAndServe(portNumber, nil); err != nil {
+	// 	log.Fatal(err)
+	// }
+	srv := &http.Server{
+		Addr:    portNumber,
+		Handler: routes(&app),
 	}
+
+	err = srv.ListenAndServe()
+	log.Fatal(err)
 }

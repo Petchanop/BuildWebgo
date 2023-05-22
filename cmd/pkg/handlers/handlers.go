@@ -6,7 +6,7 @@
 /*   By: npiya-is <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 14:57:18 by npiya-is          #+#    #+#             */
-/*   Updated: 2023/05/17 15:50:24 by npiya-is         ###   ########.fr       */
+/*   Updated: 2023/05/22 14:56:40 by npiya-is         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@ package handlers
 
 import (
 	"BuildWebgo/cmd/pkg/config"
+	"BuildWebgo/cmd/pkg/models"
 	render "BuildWebgo/cmd/pkg/render"
 	"net/http"
 )
@@ -38,9 +39,15 @@ func NewHandlers(r *Repository) {
 }
 
 func (m *Repository) AboutHttp(w http.ResponseWriter, req *http.Request) {
-	render.RenderTemplates(w, "about.page.tmpl")
+	stringMap := make(map[string]string)
+	stringMap["test"] = "Hello, again."
+	render.RenderTemplates(w, "about.page.tmpl", &models.TemplateData{
+		StringMap: stringMap,
+	})
 }
 
 func (m *Repository) HandlerHttp(w http.ResponseWriter, req *http.Request) {
-	render.RenderTemplates(w, "home.page.tmpl")
+	//perform some logic
+	// send data to about page
+	render.RenderTemplates(w, "home.page.tmpl", &models.TemplateData{})
 }
