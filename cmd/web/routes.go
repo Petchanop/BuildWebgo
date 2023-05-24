@@ -6,7 +6,7 @@
 /*   By: npiya-is <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/22 15:10:08 by npiya-is          #+#    #+#             */
-/*   Updated: 2023/05/22 20:03:27 by npiya-is         ###   ########.fr       */
+/*   Updated: 2023/05/24 14:42:55 by npiya-is         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ func routes(app *config.AppConfig) http.Handler {
 
 	mux.Use(middleware.Recoverer)
 	mux.Use(NoSurf)
+	mux.Use(SessionLoad)
 
 	mux.Get("/", handlers.Repo.HandlerHttp)
 	mux.Get("/about", handlers.Repo.AboutHttp)
