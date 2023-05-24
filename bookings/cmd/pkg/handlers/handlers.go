@@ -6,17 +6,18 @@
 /*   By: npiya-is <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 14:57:18 by npiya-is          #+#    #+#             */
-/*   Updated: 2023/05/24 15:03:34 by npiya-is         ###   ########.fr       */
+/*   Updated: 2023/05/24 18:25:38 by npiya-is         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 package handlers
 
 import (
-	"BuildWebgo/cmd/pkg/config"
-	"BuildWebgo/cmd/pkg/models"
-	render "BuildWebgo/cmd/pkg/render"
 	"net/http"
+
+	"github.com/Petchanop/bookings/cmd/pkg/config"
+	"github.com/Petchanop/bookings/cmd/pkg/models"
+	"github.com/Petchanop/bookings/cmd/pkg/render"
 )
 
 //Repo the repository used by the handlers

@@ -6,20 +6,21 @@
 /*   By: npiya-is <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 15:15:25 by npiya-is          #+#    #+#             */
-/*   Updated: 2023/05/22 15:05:29 by npiya-is         ###   ########.fr       */
+/*   Updated: 2023/05/24 18:25:55 by npiya-is         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 package render
 
 import (
-	"BuildWebgo/cmd/pkg/config"
-	"BuildWebgo/cmd/pkg/models"
 	"bytes"
 	"html/template"
 	"log"
 	"net/http"
 	"path/filepath"
+
+	"github.com/Petchanop/bookings/cmd/pkg/config"
+	"github.com/Petchanop/bookings/cmd/pkg/models"
 )
 
 var funtions = template.FuncMap{}

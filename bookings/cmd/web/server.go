@@ -6,20 +6,21 @@
 /*   By: npiya-is <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/15 15:01:18 by npiya-is          #+#    #+#             */
-/*   Updated: 2023/05/23 23:04:34 by npiya-is         ###   ########.fr       */
+/*   Updated: 2023/05/24 18:24:59 by npiya-is         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 package main
 
 import (
-	"BuildWebgo/cmd/pkg/config"
-	"BuildWebgo/cmd/pkg/handlers"
-	"BuildWebgo/cmd/pkg/render"
 	"fmt"
 	"log"
 	"net/http"
 	"time"
+
+	"github.com/Petchanop/bookings/cmd/pkg/config"
+	"github.com/Petchanop/bookings/cmd/pkg/handlers"
+	"github.com/Petchanop/bookings/cmd/pkg/render"
 
 	"github.com/alexedwards/scs/v2"
 )

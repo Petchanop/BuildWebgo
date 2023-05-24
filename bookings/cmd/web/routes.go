@@ -6,16 +6,17 @@
 /*   By: npiya-is <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/22 15:10:08 by npiya-is          #+#    #+#             */
-/*   Updated: 2023/05/24 14:42:55 by npiya-is         ###   ########.fr       */
+/*   Updated: 2023/05/24 18:25:03 by npiya-is         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 package main
 
 import (
-	"BuildWebgo/cmd/pkg/config"
-	"BuildWebgo/cmd/pkg/handlers"
 	"net/http"
+
+	"github.com/Petchanop/bookings/cmd/pkg/config"
+	"github.com/Petchanop/bookings/cmd/pkg/handlers"
 
 	"github.com/go-chi/chi"
 	"github.com/go-chi/chi/middleware"
