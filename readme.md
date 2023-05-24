@@ -1,5 +1,5 @@
-Practics Web development with golang
-Building Modern Web Apllication with go by Trevor Sawler 
+Practics Web development with golang<br>
+Building Modern Web Apllication with go by Trevor Sawler<br>
 ----------------------------------------
 
 - Built in Go version 1.18
